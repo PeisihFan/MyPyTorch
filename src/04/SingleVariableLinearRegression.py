@@ -2,6 +2,7 @@ import numpy as np
 import torch
 import matplotlib.pyplot as plt
 
+
 class NeturaNet(torch.nn.Module):
     def __init__(self, n_f, n_h, n_o):
         super(NeturaNet, self).__init__()
@@ -29,8 +30,8 @@ class SingleVariableLinearRegression:
 
     def Train(self):
         X, Y = self.CreateSampleData(1000)
-        X=X.astype(np.float32)
-        Y=Y.astype(np.float32)
+        X = X.astype(np.float32)
+        Y = Y.astype(np.float32)
         xt = torch.from_numpy(X)
 
         yt = torch.from_numpy(Y)
@@ -39,17 +40,17 @@ class SingleVariableLinearRegression:
 
         optimizer = torch.optim.SGD(net.parameters(), 0.1)
         loss_f = torch.nn.MSELoss()
-        pre=None
+        pre = None
         for t in range(100):
             pre = net(xt)
             loss = loss_f(pre, yt)
             optimizer.zero_grad()
             loss.backward()
             optimizer.step()
-        self.Draw(X,Y,pre.data.numpy())
+        self.Draw(X, Y, pre.data.numpy())
         print("end")
 
-    def Draw(self,x,y,p):
+    def Draw(self, x, y, p):
         plt.ion()  # 画图
         plt.show()
         plt.cla()
