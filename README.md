@@ -1,3 +1,3 @@
 # MyPyTorch
 
-microsoft ai-edu for PyTorch
+[microsoft ai-edu](https://microsoft.github.io/ai-edu/) for PyTorch
